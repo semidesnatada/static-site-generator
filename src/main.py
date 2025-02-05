@@ -6,6 +6,15 @@ def main():
     print("Hello World")
 
 
+    tester1 = "`bea`hel`lo`ns"
+    tester2 = "b`ea`hel`lo`ns"
+
+    print(tester1.split("`"))
+    print(tester2.split("`"))
+
+    for chunk in tester1.split("`"):
+        if chunk:
+            print(chunk)
 
     text_node1 = TextNode("Baked Beans", TextType.NORMAL_TEXT)
     text_node2 = TextNode("This is not a text node", TextType.LINKS, "great-web-com")
