@@ -6,27 +6,27 @@ def main():
     print("Hello World")
 
 
-    tester1 = "`bea`hel`lo`ns"
-    tester2 = "b`ea`hel`lo`ns"
+    # tester1 = "`bea`hel`lo`ns"
+    # tester2 = "b`ea`hel`lo`ns"
 
-    print(tester1.split("`"))
-    print(tester2.split("`"))
+    # print(tester1.split("`"))
+    # print(tester2.split("`"))
 
-    for chunk in tester1.split("`"):
-        if chunk:
-            print(chunk)
+    # for chunk in tester1.split("`"):
+    #     if chunk:
+    #         print(chunk)
 
-    text_node1 = TextNode("Baked Beans", TextType.NORMAL_TEXT)
-    text_node2 = TextNode("This is not a text node", TextType.LINKS, "great-web-com")
-    print(text_node1)
+    # text_node1 = TextNode("Baked Beans", TextType.NORMAL_TEXT)
+    # text_node2 = TextNode("This is not a text node", TextType.LINKS, "great-web-com")
+    # print(text_node1)
 
-    converted1 = text_node_to_html_node(text_node1)
-    print(converted1)
+    # converted1 = text_node_to_html_node(text_node1)
+    # print(converted1)
 
-    print(text_node2)
+    # print(text_node2)
 
-    converted2 = text_node_to_html_node(text_node2)
-    print(converted2)
+    # converted2 = text_node_to_html_node(text_node2)
+    # print(converted2)
 
     # html_node_0 = HTMLNode(None, "Press this to go to google", None, None)
     # html_node_1 = HTMLNode("p", "Hello mr. beans", None, None)

@@ -29,12 +29,15 @@ class LeafNode(HTMLNode):
         super().__init__(tag, value, None, props)
 
     def to_html(self):
-        if not self.value:
-            raise ValueError("No value to write")
-        if not self.tag:
-            return self.value
+        if self.tag == "img":
+            return f"<{self.tag}{self.props_to_html()}>"
         else:
-            return f"<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>"
+            if not self.value:
+                raise ValueError(f"No value to write in {self.tag}")
+            if not self.tag:
+                return self.value
+            else:
+                return f"<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>"
         
     def __repr__(self):
         return f"HTMLNode({self.tag}, {self.value}, {self.props})"
