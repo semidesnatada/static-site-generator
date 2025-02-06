@@ -129,4 +129,10 @@ def text_to_textnodes(text):
     for delimiter, text_type in delimiters.items():
         inter_nodes_2 = split_nodes_delimiter(inter_nodes_2, delimiter, text_type)
 
-    return inter_nodes_2
+    inter_nodes_3 = []
+
+    for node in inter_nodes_2:
+        if node.text:
+            inter_nodes_3.append(node)
+
+    return inter_nodes_3

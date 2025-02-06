@@ -91,13 +91,14 @@ def markdown_blockquote_to_html(markdown_block):
     list_children = []
     list_items = markdown_block.split("\n")
     for list_item in list_items:
-        text = list_item[1:]
+        text = list_item[2:]
         text_children = text_to_textnodes(text)
         html_children = []
         for text_child in text_children:
             html_children.append(text_node_to_html_node(text_child))
-        list_children.append(ParentNode("p",html_children))
-
+        # list_children.append(ParentNode("p",html_children))
+        list_children = html_children
+    # print(list_children)
     return ParentNode(tag="blockquote", children=list_children)
 
 def markdown_to_html_node(markdown):
@@ -119,3 +120,12 @@ def markdown_to_html_node(markdown):
             block_html_nodes.append(markdown_blockquote_to_html(markdown_block))
 
     return ParentNode(tag="div", children=block_html_nodes)
+
+def extract_title(markdown):
+
+    lines = markdown.split("\n")
+    
+    for line in lines:
+        if line[:2] == "# ":
+            return line[2:]
+    raise Exception("Doc has no title")

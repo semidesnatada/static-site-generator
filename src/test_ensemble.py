@@ -1,6 +1,6 @@
 import unittest
 
-from split_markdown import markdown_to_html_node
+from split_markdown import markdown_to_html_node, extract_title
 
 class TestEnsemble(unittest.TestCase):
 
@@ -34,6 +34,20 @@ class TestEnsemble(unittest.TestCase):
         # print()
 
         self.assertEqual(output, expected_output)
+
+    def test_example_3(self):
+
+        input = '# Sample Markdown\n\nThis is some basic, sample markdown.\n\n## Second Heading\n\n* Unordered lists,'
+        output = extract_title(input)
+        expected_output = 'Sample Markdown'
+
+        self.assertEqual(output, expected_output)
+
+    def test_example_4(self):
+
+        input = '## Sample Markdown\n\nThis is some basic, sample markdown.\n\n## Second Heading\n\n* Unordered lists,'
+ 
+        self.assertRaises(Exception, extract_title, input )
 
 if __name__ == "__main__":
     unittest.main()
