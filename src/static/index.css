@@ -1,93 +1,577 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+abbr, address, cite, pre, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    font-family: SourceReg;
+}
+
+pre, code {
+    display: inline;
+}
+
+footer,header,nav,section {
+    display:block;
+}
+
 body {
-    background-color: #0d1117;
-    color: #c9d1d9;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    line-height: 1.5;
-    margin: 0;
-    padding: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    line-height:1;
 }
 
-b {
-    font-weight: 900;
+/* Images for site */
+
+/* End of Images for site */
+
+/*Importing fonts from the rootfolder*/
+@font-face {
+    src: url(fonts/SourceSerifPro-Regular.ttf);
+    font-family: SourceReg;
+}
+@font-face {
+    src: url(fonts/SourceSerifPro-Black.ttf);
+    font-family: SourceBlack;
+}
+/*
+@font-face {
+    src: url(fonts/Roboto-Regular.ttf);
+    font-family: RobotoReg;
+} */
+
+/*Styling for boxes on whole wesbite*/
+
+
+/*Footer*/
+
+/* End of Footer */
+
+/* Drop Down Menu */  
+
+/* End of Drop Down */
+
+/* Page-unique styling */
+
+/* End of Page-unique styling*/
+
+@media only screen and (min-width: 768px) {
+    .content {
+        flex: 1 0 auto;
+    }
+    main .wrapper {
+        width: 728px;
+        margin: 0 auto;
+    }
+    footer {
+        margin: 60px 0 0 0;
+        padding: 25px;
+        background-color:#000;
+    }
+    .dropdown {
+        display:none;
+    }
+    h1 {
+        font-size: 40px;
+        line-height: 45px;
+        padding:25px 20px 25px 25px;
+        margin: 50px 0 15px 0;
+        /* margin: 25px 20px 25px 20px; */
+        text-align: left;
+        color: white;
+        background-color: black;
+    }
+    h2 {
+        font-size: 30px;
+        line-height: 35px;
+        text-align: left;
+        margin: 30px 0 15px;
+        color: rgba(0, 122, 61, 1);
+    }
+    h3 {
+        font-size: 20px;
+        line-height: 30px;
+        text-align: left;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    main ol {
+        margin: 20px 0 20px 40px;
+        font-size: 20px;
+        line-height: 25px;
+    }
+    main ul {
+        margin: 20px 0 20px 40px;
+        font-size: 20px;
+        line-height: 25px;
+    }
+    main li {
+        margin: 10px 0 0 0;
+    }
+    blockquote {
+        margin: 10px 0 10px 0;
+        background-color: lightgrey;
+        color: #555;
+        font-style: italic;
+        font-size: 20px;
+        padding: 10px 20px 10px 20px;
+    }
+    blockquote p {
+        margin: 10px 0 10px 0;
+    }
+    p {
+        margin: 10px 0 10px 0;
+    }
+    .end-page {
+        margin: 0 auto 300px;
+    }
+
+    /* Scroll Back to top Button */
+
+    #scrollButton {
+        visibility: hidden;
+        position: fixed; 
+        bottom: 112px;
+        right: 30px;
+        z-index: 99;
+        border: none; /* Remove borders */
+        outline: none; /* Remove outline */
+        background-color: black; /* Set a background color */
+        color: white; /* Text color */
+        cursor: pointer; /* Add a mouse pointer on hover */
+        padding: 15px; /* Some padding */
+        border-radius: 10px; /* Rounded corners */
+        font-size: 18px; /* Increase font size */
+      }
+      
+      #scrollButton:hover {
+        background-color: #555; /* Add a dark-grey background on hover */
+      }
+
+
+
+    /* Header */
+    header .wrapper{
+        padding: 10px 0 10px 0;
+        width: 728px;
+        margin: 0 auto;
+    }
+    header .button-width{
+        background-color: black;
+    }
+    header .button-wrapper{
+        padding: 10px 0 10px 0;
+        width: 728px;
+        margin: 0 auto 0;
+    }
+    header .head-text {
+        display: flex;
+        /* padding: 0 0 0 30px; */
+    }
+    header .head-buttons {
+        display: flex;
+        /* padding: 0 0 0 30px; */
+    }
+    header .dividing-line {
+        height: 5px;
+    }
+    .logo {
+        font-size: 45px;
+        font-weight: 1000;
+        color: #000;
+        text-decoration: none;
+        display: block;
+        margin: 35px auto 20px;
+        padding: 5px 0;
+        text-align: center;
+        width: fit-content;
+        background-color: #fff;
+    }
+    header {
+        width: 100%;
+        height: auto;
+    }
+    header nav {
+        height: auto;
+        display: flex;
+        width: 100%;
+    }
+    header nav ul {
+        display: flex;
+        /* margin: auto auto; */
+        /* width: fit-content; */
+        width: 100%;
+        justify-content: space-between;
+    }
+    header nav ul li {
+        float: left;
+        list-style: none;
+        padding: 0 15px 0 15px;
+        background-color: black;
+    }
+    header nav ul li a {
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none;
+        line-height: 30px;
+    }
+    header nav ul li .not-current {
+        color: white;
+    }
+    header nav ul li .current-link {
+        color: rgba(0, 122, 61, 1);
+    }
+    header button {
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+        text-decoration: none;
+        line-height: 30px;
+        background-color: Transparent;
+        border: none;
+        cursor:pointer;
+    }
+    header nav ul li a:hover {
+        color: rgba(0, 122, 61, 1);
+    }
+    header button:hover {
+        color: rgba(0, 122, 61, 1);
+    }
+    .logo:hover {
+        color: rgba(206, 17, 38, 1);
+    }
+    /* End Header */
+
+    /* Home specific */
+
+    p a:link {
+        color: rgba(206, 17, 38, 1);
+    }
+    p a:visited {
+        color: rgba(206, 17, 38, 1);
+    }
+    p a:hover {
+        color: rgba(0, 122, 61, 1);
+    }
+
+    /* End Home specific */
+
+    /* Article Library specific */
+
+    .library-link {
+        color: rgba(206, 17, 38, 1);
+    }
+
+    .library-link:visited {
+        color: rgba(206, 17, 38, 1);
+    }
+    .library-link:hover {
+        color: rgba(0, 122, 61, 1);
+    }
+    .library-container {
+        background-color: #fff;
+        margin: 20px 0 10px 0;
+    }
+    .library-linkbox {
+        padding: 20px 25px 20px 25px;
+        height: 107px;
+        margin: 15px 0 15px 0;
+        /* box-shadow: 0 5px 5px rgba(50,50,93,.1),0 5px 5px rgba(0,0,0,.07); */
+        border: 5px solid black;
+    }
+    .h2-library {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: left;
+        margin: 12px 0 5px;
+        color: rgba(0, 122, 61, 1);
+    }
+    .h3-library {
+        font-size: 15px;
+        line-height: 20px;
+        text-align: left;
+        margin: 5px 0 0;
+        color: black;
+    }
+    .h4-library {
+        font-size: 12px;
+        line-height: 15px;
+        text-align: right;
+        color: gray;
+    }
+    .block-internal {
+        display:inline-flex;
+        width:100%;
+        height:107px;
+    }
+    .library-number {
+        font-size:55px;
+        font-family: SourceBlack;
+        margin: 10px 20px 10px 0px;
+        display:flex;
+        align-items: top;
+    }
+    .link-group {
+        margin: 0 0 10px;
+    }
+    .text-holder {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .publication-date {
+        bottom: 0px;
+    }
+    .library-break {
+        height: 10px;
+    }
+    .h2-library-head {
+        font-size: 30px;
+        line-height: 35px;
+        text-align: left;
+        margin: 30px 0 5px;
+        color: rgba(0, 122, 61, 1);
+    }
+    .h3-library-head {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: left;
+        margin: 0 0 5px;
+    }
+    /* End of Article Library specific */
+
+    /* Article specific styling */
+    .source-reference {
+        padding:18px 20px 25px 25px;
+        margin: 15px 0 15px 0;
+        /* margin: 25px 20px 25px 20px; */
+        text-align: left;
+        color: white;
+        background-color: gray;
+    }
+
+    .source-reference-h2 {
+        font-size: 20px;
+        line-height: 25px;
+        text-align: left;
+        margin: 0 0 0 0;
+        color: black;
+        padding: 0 0 10px 0;
+    }
+    .source-reference-h3 {
+        font-size: 16px;
+        line-height: 20px;
+        text-align: left;
+        margin: 0 0 0 0;
+        color: black;
+    }
+    .source-reference-h3 a{
+        font-size: 16px;
+        line-height: 20px;
+        text-align: left;
+        margin: 0 0 0 0;
+        color: white;
+        text-decoration: underline;
+    }
+    .h4-article {
+        color:gray;
+    }
+    div.article-scrollmenu {
+        background-color: black;
+        overflow: auto;
+        white-space: nowrap;
+        margin: 45px 0 0 0;
+      }    
+    div.article-scrollmenu a {
+        display: inline-block;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+    }
+    
+    div.article-scrollmenu a:hover {
+    background-color: #777;
+    }
+
+    div.article-scrollmenu .not-current {
+        color: white;
+    }
+    div.article-scrollmenu .current-link {
+        color: rgba(0, 122, 61, 1);
+    }
+    .article-date {
+        font-size: 15px;
+        line-height: 17px;
+        padding:5px 20px 25px 25px;
+        /* margin: 25px 20px 25px 20px; */
+        text-align: left;
+        color: white;
+        background-color: black;
+    }
+    .h1-article {
+        font-size: 40px;
+        line-height: 45px;
+        padding:25px 20px 15px 25px;
+        margin: 50px 0 0 0;
+        /* margin: 25px 20px 25px 20px; */
+        text-align: left;
+        color: white;
+        background-color: black;
+    }
+    /* End of Article specific styling */
+
+    /*Footer*/
+    .footer {
+        flex-shrink: 0;
+        margin: 10px 0 0 0;
+        padding: 25px;
+        background-color:#000;
+    }
+       
+    .footer div p {
+        color:#fff;
+        font-size: 12px;
+    }
+    .footer div p a {
+        color:#fff;
+        text-decoration: underline;
+    }
+
+    /* End of Footer */
+
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: #58a6ff;
-    margin-top: 24px;
-    margin-bottom: 16px;
+code.block.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    line-height: 25px;
+    font-size: 20px;
+    font-family: SourceReg;
+    border-radius: 10px;
+  }
+.inline.hljs {
+    display: inline;
+    line-height: 25px;
+    font-size: 20px;
+    font-family: SourceReg;
+    border-radius: 5px;
+    padding: .1em;
 }
-
-h1 {
-    font-size: 2em;
-}
-
-h2 {
-    font-size: 1.5em;
-}
-
-h3 {
-    font-size: 1.17em;
-}
-
-h4,
-h5,
-h6 {
-    font-size: 1em;
-}
-
-a {
-    color: #58a6ff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-ul,
-ol {
-    padding-left: 20px;
-}
-
-code {
-    background-color: #242424;
-    border-radius: 6px;
-    color: #d2a8ff;
-    padding: 0.2em 0.4em;
-    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
-}
-
-pre code {
-    padding: 0;
-}
-
-pre {
-    background-color: #242424;
-    border-radius: 6px;
-    padding: 0.2em 0.4em;
-}
-
-blockquote {
-    background-color: #242424;
-    border-left: 4px solid #30363d;
-    padding-left: 2em;
-    margin-left: 0;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-right: 0.5em;
-    color: #8b949e;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
+/* pre code.hljs {
+    /* display: block; */
+    /* overflow-x: auto; */
+    /* padding: 0em */
+/* } */
+/* code.hljs {
+/* padding: 3px 5px */
+    /* display: block; */
+/* } */
+  /*
+  
+  Atom One Dark by Daniel Gamage
+  Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+  
+  base:    #282c34
+  mono-1:  #abb2bf
+  mono-2:  #818896
+  mono-3:  #5c6370
+  hue-1:   #56b6c2
+  hue-2:   #61aeee
+  hue-3:   #c678dd
+  hue-4:   #98c379
+  hue-5:   #e06c75
+  hue-5-2: #be5046
+  hue-6:   #d19a66
+  hue-6-2: #e6c07b
+  
+  */
+  .hljs {
+    color: #abb2bf;
+    background: #282c34
+    /* background: red; */
+  }
+  .hljs-comment,
+  .hljs-quote {
+    color: #5c6370;
+    font-style: italic
+  }
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-formula {
+    color: #c678dd
+  }
+  .hljs-section,
+  .hljs-name,
+  .hljs-selector-tag,
+  .hljs-deletion,
+  .hljs-subst {
+    color: #e06c75
+  }
+  .hljs-literal {
+    color: #56b6c2
+  }
+  .hljs-string,
+  .hljs-regexp,
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-meta .hljs-string {
+    color: #98c379
+  }
+  .hljs-attr,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-selector-class,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-number {
+    color: #d19a66
+  }
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-link,
+  .hljs-meta,
+  .hljs-selector-id,
+  .hljs-title {
+    color: #61aeee
+  }
+  .hljs-built_in,
+  .hljs-title.class_,
+  .hljs-class .hljs-title {
+    color: #e6c07b
+  }
+  .hljs-emphasis {
+    font-style: italic
+  }
+  .hljs-strong {
+    font-weight: bold
+  }
+  .hljs-link {
+    text-decoration: underline
+  }

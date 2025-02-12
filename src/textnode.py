@@ -1,11 +1,12 @@
 from enum import Enum
-from htmlnode import LeafNode
+from htmlnode import LeafNode, ParentNode
 
 class TextType(Enum):
     NORMAL_TEXT = "normal text"
     BOLD_TEXT = "bold text"
     ITALIC_TEXT = "italic text"
     CODE_TEXT = "code text"
+    CODE_BLOCK = "code block"
     LINKS = "links"
     IMAGES = "images"
 
@@ -31,7 +32,9 @@ def text_node_to_html_node(text_node):
         case TextType.ITALIC_TEXT:
             return LeafNode("i", text_node.text)
         case TextType.CODE_TEXT:
-            return LeafNode("code", text_node.text)
+            return LeafNode("code", text_node.text, {"class": "inline hljs language-python"})
+        case TextType.CODE_BLOCK:
+            return ParentNode("pre", [LeafNode("code", text_node.text, {"class": "block"})])
         case TextType.LINKS:
             return LeafNode("a", text_node.text, {"href":text_node.url})
         case TextType.IMAGES:

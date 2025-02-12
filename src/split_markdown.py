@@ -1,7 +1,7 @@
 
 from htmlnode import ParentNode, LeafNode, HTMLNode
 from split_nodes import text_to_textnodes
-from textnode import text_node_to_html_node
+from textnode import text_node_to_html_node, TextNode, TextType
 
 def markdown_to_block(markdown):
     out=[]
@@ -37,8 +37,13 @@ def block_to_block_type(markdown_block):
             is_quote = False
         if line[:2] != "- " and line[:2] != "* ":
             is_ul = False
-        if line[:3] != f"{i+1}. ":
-            is_ol = False
+        #support ordered lists of up to 99 elements
+        if i <= 8:
+            if line[:3] != f"{i+1}. ":
+                is_ol = False
+        elif i > 8:
+            if line[:4] != f"{i+1}. ":
+                is_ol = False
         if not is_quote and not is_ul and not is_ol:
             return "p"
     
@@ -60,8 +65,9 @@ def markdown_lists_to_html(markdown_block, block_tag):
         text_children = text_to_textnodes(text)
         html_children = []
         for text_child in text_children:
+            # html_children.append(ParentNode("span", [text_node_to_html_node(text_child)]))
             html_children.append(text_node_to_html_node(text_child))
-        list_children.append(ParentNode("li",html_children))
+        list_children.append(ParentNode("li", html_children))
 
     return ParentNode(tag=block_tag, children=list_children)
 
@@ -80,12 +86,10 @@ def markdown_para_to_html(markdown_block):
         children_htmlnodes.append(text_node_to_html_node(text_node))
     return ParentNode(tag="p", children = children_htmlnodes)
 
-def markdown_code_to_html(markdown_block):
-    children_textnodes = text_to_textnodes(markdown_block[3:-3])
-    children_htmlnodes = []
-    for text_node in children_textnodes:
-        children_htmlnodes.append(text_node_to_html_node(text_node))
-    return ParentNode(tag="code", children = children_htmlnodes)
+def markdown_code_to_html(markdown_block, block=False):
+    children_textnode = TextNode(markdown_block[3:-3], TextType.CODE_BLOCK)
+    htmlnodes = text_node_to_html_node(children_textnode)
+    return htmlnodes
 
 def markdown_blockquote_to_html(markdown_block):
     list_children = []
@@ -96,9 +100,8 @@ def markdown_blockquote_to_html(markdown_block):
         html_children = []
         for text_child in text_children:
             html_children.append(text_node_to_html_node(text_child))
-        # list_children.append(ParentNode("p",html_children))
-        list_children = html_children
-    # print(list_children)
+
+        list_children.extend(html_children)
     return ParentNode(tag="blockquote", children=list_children)
 
 def markdown_to_html_node(markdown):
@@ -113,7 +116,7 @@ def markdown_to_html_node(markdown):
         elif block_type == "ul" or block_type == "ol":
             block_html_nodes.append(markdown_lists_to_html(markdown_block, block_type))
         elif block_type == "code":
-            block_html_nodes.append(markdown_code_to_html(markdown_block))
+            block_html_nodes.append(markdown_code_to_html(markdown_block, block=True))
         elif block_type[0] == "h":
             block_html_nodes.append(markdown_header_to_html(markdown_block, block_type))
         elif block_type == "blockquote":

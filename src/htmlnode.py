@@ -15,6 +15,8 @@ class HTMLNode:
         out = ''
         for key, value in self.props.items():
             out += f' {key}="{value}"'
+        if self.tag == "img":
+            out += f' style="width:100%"'
         return out
 
     def __repr__(self):
@@ -31,6 +33,8 @@ class LeafNode(HTMLNode):
     def to_html(self):
         if self.tag == "img":
             return f"<{self.tag}{self.props_to_html()}>"
+        # elif self.tag == "code":
+        #     return f'<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>'
         else:
             if not self.value:
                 raise ValueError(f"No value to write in {self.tag}")
@@ -51,10 +55,16 @@ class ParentNode(HTMLNode):
             raise ValueError("Not a valid html tag")
         if self.children is None:
             raise ValueError("Children are missing")
-        out = f'<{self.tag}{self.props_to_html()}>'
-        for child in self.children:
-            out += child.to_html()
-        out += f'</{self.tag}>'
+        if self.tag == "blockquote":
+            out = f'<{self.tag}{self.props_to_html()}>'
+            for child in self.children:
+                out += f'<p>{child.to_html()}</p>'
+            out += f'</{self.tag}>'
+        else:
+            out = f'<{self.tag}{self.props_to_html()}>'
+            for child in self.children:
+                out += child.to_html()
+            out += f'</{self.tag}>'
         return out
 
         

@@ -6,12 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> {{ Title }} </title>
     <link href="/index.css" rel="stylesheet">
+    <script src="/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 
 <body>
-    <article>
-        {{ Content }}
-    </article>
+    <div class="content">
+
+        <header>
+            <div class="wrapper">
+                <div class="head-text">
+                <a href="index.html" class="logo">slowery.co.uk</a>
+                </div>
+            </div>
+        
+        <div class = "button-width">
+        <div class="button-wrapper">
+        <div class="head-buttons">
+        
+            <nav>
+                <ul>
+                    <li><a class = "not-current" href="/index.html">Home</a></li>
+                    <li><a class = "not-current" href="/majesty/index.html">Article Library</a></li>
+                    <li><a class = "current-link" href="/index.html">Football Data</a></li>
+                    <li><a class = "not-current" href="/majesty/index.html">SuziAllen</a></li>
+                    <li><a class = "not-current" href="/majesty/index.html">Contact Me</a></li>
+                </ul>
+            </nav>
+        
+        </div>
+        </div>
+        </div>
+        
+        </header>
+
+
+        <main>
+            <div class="wrapper">
+            {{ Content }}
+            </div>
+        </main>
+
+
+        <button onclick="topFunction()" id="scrollButton" title="Go to top">Back to top</button>
+
+
+
+        <div class = "end-page"></div>
+
+        <br class = "end-page">
+
+            <footer class="footer">
+                <div class="wrapper">
+                <div>
+                    <p>Contact me <a href="https://www.bbc.co.uk/sport/football/63017872" target="blank">here</a></p>
+                    <p>Last updated 30 September 2022</p>
+                </div>
+                </div>
+            </footer>
+
+        </div>
+
 </body>
 
 </html>
